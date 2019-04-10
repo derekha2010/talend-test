@@ -14,7 +14,7 @@
     <module>jobs/process/testcdc_0.1</module>
     <module>jobs/process/kafka_csv_0.1</module>
     <module>jobs/process/cdc_kafka_0.1</module>
-    <module>jobs/process/testjob_0.1</module>
+    <module>jobs/process/testga_0.1</module>
   </modules>
   <properties>
     <talend.project.name>TESTGIT</talend.project.name>
