@@ -190,7 +190,7 @@
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="COUNTRIES" name="tLogRow_1">
-      <column comment="" key="true" length="2" name="COUNTRY_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_byte[]" usefulColumn="true">
+      <column comment="" key="true" length="2" name="COUNTRY_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
       <column comment="" key="false" length="40" name="COUNTRY_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -203,51 +203,22 @@
       <column key="false" length="11" name="TALEND_CDC_CREATION_DATE" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_Date" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tKafkaOutput" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="800" posY="256">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tKafkaOutput_1"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
-    <elementParameter field="CLOSED_LIST" name="KAFKA_VERSION" value="KAFKA_1_1_0"/>
-    <elementParameter field="TEXT" name="BROKER_LIST" value="&quot;localhost:9092&quot;"/>
-    <elementParameter field="TEXT" name="KAFKA_TOPIC" value="&quot;mytopic&quot;"/>
-    <elementParameter field="CHECK" name="COMPRESS" value="false"/>
-    <elementParameter field="CLOSED_LIST" name="COMPRESSION" show="false" value="GZIP"/>
-    <elementParameter field="CHECK" name="USE_HTTPS" value="false"/>
-    <elementParameter field="COMPONENT_LIST" name="HTTPS_SETTING" show="false" value=""/>
-    <elementParameter field="CHECK" name="USE_KRB" value="false"/>
-    <elementParameter field="FILE" name="JAAS_CONF" show="false" value="&quot;/etc/kafka/kafka_client_jaas.conf&quot;"/>
-    <elementParameter field="TEXT" name="KRB_SERVICE_NAME" show="false" value="&quot;kafka&quot;"/>
-    <elementParameter field="CHECK" name="SET_KINIT_PATH" show="false" value="false"/>
-    <elementParameter field="FILE" name="KINIT_PATH" show="false" value="&quot;/usr/bin/kinit&quot;"/>
-    <elementParameter field="CHECK" name="SET_KRB5_CONF" show="false" value="false"/>
-    <elementParameter field="FILE" name="KRB5_CONF" show="false" value="&quot;/etc/kafka/krb5.conf&quot;"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
-    <elementParameter field="TABLE" name="KAFKA_PRODUCER_PROPERTIES"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tKafkaOutput_1">
-      <column defaultValue="" key="false" length="0" name="serializedValue" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_byte[]" usefulColumn="true"/>
-    </metadata>
-  </node>
   <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tMSSqlCDC_1" offsetLabelX="0" offsetLabelY="0" source="tMSSqlCDC_1" target="tLogRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
-  </connection>
-  <connection connectorName="FLOW" label="row2" lineStyle="0" metaname="tLogRow_1" offsetLabelX="0" offsetLabelY="0" source="tLogRow_1" target="tKafkaOutput_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row2"/>
   </connection>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMSSqlCDC_1"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_83f42f6b-9eeb-462e-8c56-e6660d4a5a65"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>/jfgMZ4rEv3NSjwxCFmQvyEtz2dx6OiZ6fTMpbq0/1DPpHdnlRABA31mwiRm/0SWmdFBjM4hPE16
-mVJPMbvvsg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_1aa93d77-5f00-47b0-9bfb-447b1e1ab265"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>/T1UV2L0Q/6PR2SGMzbQHkfVn3aTaBXMOB/CGJ3aAU5DLhIaZTEPQmeavz7vaM2B+nhBxzt0rZmH
-/vnHns69TA==</DigestValue></Reference></SignedInfo><SignatureValue>IbwyprERPUU5xCTkgu8j56SXVn6y0nOHN+f9VXwAw9Zz6WSVrrlJXVBI+qMszHI5GtqXcQHwwEvl
-H96xK6w6NytYof51o9gHenQEX57MRBM4hfN7RYzaJ0Nu5gNxV7rLYv/fwIqrSGSk1les2dRtkIyI
-IIjqMWyAVaJa1Swg3LRlPB7UI7y/x/GwcW7Q0YgUerYtojv6nFCqIoWMvf1Q1yb0HE3aJEiJKuaS
-Zw9uLiWMRTbba4jDMPbR5MlCa+19rC9bNklOY4LkoMD2ZTc59H3DvWTg9nUH8yPuu5Kicb7qX60p
-27KuT/2R5p0gidSznKqAHmoffK0cPYNusAqL1Q==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_a87639f4-049f-467c-8d71-c37d6162c266"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Y0IbicoEYzvJWpxDMg5NevTenS3P6X3ZFYjxpeSOJMSu+HnuwQg2wEM5a9c0+TF/vmX9Y0qF8Oo4
+xRXOZqeRzA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_31bf5cad-fc95-4802-989d-285a1e5cd62d"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>qos/xWWiSehI3I7bxiK0gD42LuBPxTG4SoUTJjS+2Gd8lkqF+//MD7MMx9u8xx+1Tq5aAaVkxQ7n
+ChPSM5Z2HA==</DigestValue></Reference></SignedInfo><SignatureValue>oONfrtX9E6yOZ1seomCcwGtkdMXIRJPAqv0zhpgDtllDTcLfKp+Jjk2t0X0Hkn0f/9tczk4bMIZ4
+/+nuy7w89UayM4HRR81UBk8jUO73V4DFrmGy12BFedxSXFwo8gU4tfVIa0OBRM3CjoBOKTF7/xw4
+R2ejvPpUMvb8AKdgYR6WgyP2Cq4pT/BG+mPpVYM6g7YlUqRgeXP/OVo9tjs8z7wkdvLJODD9/URu
+EBuR8HTwSnHuNVRjBB42BrSVSHbGpB6zYYuAbIEwPV4ulGNdyPUzajFG7QB2AP5qlU1wRFUZ7Ckx
+9Y8hCZIFKvrB9sPef0JPhKVQuhXrL4pMFZET3w==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -271,4 +242,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_1aa93d77-5f00-47b0-9bfb-447b1e1ab265" Target="#_83f42f6b-9eeb-462e-8c56-e6660d4a5a65"><Timestamp>2019-04-10 07:47:11</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_31bf5cad-fc95-4802-989d-285a1e5cd62d" Target="#_a87639f4-049f-467c-8d71-c37d6162c266"><Timestamp>2019-04-10 07:51:49</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
